@@ -1,0 +1,11 @@
+{
+  "extends": ["next/core-web-vitals"],
+  "ignorePatterns": [
+    ".next/",
+    "node_modules/",
+    "deliverables/",
+    "reconstruction_source/",
+    "hyper_detail_source/",
+    "user_view_path_source/"
+  ]
+}

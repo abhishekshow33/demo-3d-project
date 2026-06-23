@@ -1,0 +1,5 @@
+Created At: 2026-06-22T18:00:31Z
+Completed At: 2026-06-22T18:00:31Z
+{"File":"/Users/abhishekshow/Downloads/la-martiniere-excellence-improved/three/BuildingScene.tsx","LineNumber":12,"LineContent":"import { AchievementFrameWall, SCHOOL_ACHIEVEMENTS } from './AchievementFrameWall';"}
+{"File":"/Users/abhishekshow/Downloads/la-martiniere-excellence-improved/three/BuildingScene.tsx","LineNumber":366,"LineContent":"      \u003cAchievementFrameWall side=\"left\" achievements={leftAchievements} schoolId={schoolId} accent={accent} frameReveal={entrance.frameReveal} revealOffset={0} baseZ={6} zSpacing={7} /\u003e"}
+{"File":"/Users/abhishekshow/Downloads/la-martiniere-excellence-improved/three/BuildingScene.tsx","LineNumber":367,"LineContent":"      \u003cAchievementFrameWall side=\"right\" achievements={rightAchievements} schoolId={schoolId} accent={accent} frameReveal={entrance.frameReveal} revealOffset={3} baseZ={6} zSpacing={7} /\u003e"}

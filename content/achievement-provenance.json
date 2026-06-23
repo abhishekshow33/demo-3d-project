@@ -1,0 +1,24 @@
+{
+  "captured_at": "2026-06-22",
+  "policy": "Official La Martiniere website media stored locally, center-cropped to 1200x800 and encoded as WebP quality 82.",
+  "assets": [
+    { "local": "/images/achievements/shared-founder.webp", "source": "https://lamartiniere.co/assets/img/colt_mart.jpeg" },
+    { "local": "/images/achievements/shared-benefactor.webp", "source": "https://lamartiniere.co/assets/img/pl.jpg" },
+    { "local": "/images/achievements/shared-campus.webp", "source": "https://lamartiniere.co/assets/img/about-us.png" },
+    { "local": "/images/achievements/shared-legacy-1.webp", "source": "https://lamartiniere.co/assets/img/ne1.png" },
+    { "local": "/images/achievements/shared-legacy-2.webp", "source": "https://lamartiniere.co/assets/img/ne2.png" },
+    { "local": "/images/achievements/shared-legacy-3.webp", "source": "https://lamartiniere.co/assets/img/ne3.png" },
+    { "local": "/images/achievements/boys-gallery-1.webp", "source": "https://lamartiniere.co/laMartiniereForBoys/asset/img/g1.png" },
+    { "local": "/images/achievements/boys-gallery-2.webp", "source": "https://lamartiniere.co/laMartiniereForBoys/asset/img/g2.png" },
+    { "local": "/images/achievements/boys-gallery-3.webp", "source": "https://lamartiniere.co/laMartiniereForBoys/asset/img/g3.png" },
+    { "local": "/images/achievements/boys-gallery-4.webp", "source": "https://lamartiniere.co/laMartiniereForBoys/asset/img/g4.png" },
+    { "local": "/images/achievements/boys-gallery-5.webp", "source": "https://lamartiniere.co/laMartiniereForBoys/asset/img/g6.png" },
+    { "local": "/images/achievements/boys-gallery-6.webp", "source": "https://lamartiniere.co/laMartiniereForBoys/asset/img/g7.png" },
+    { "local": "/images/achievements/girls-gallery-1.webp", "source": "https://lamartiniere.co/laMartiniereForGirls/asset/img/cme.png" },
+    { "local": "/images/achievements/girls-gallery-2.webp", "source": "https://lamartiniere.co/laMartiniereForGirls/asset/img/thumb.png" },
+    { "local": "/images/achievements/girls-gallery-3.webp", "source": "https://lamartiniere.co/laMartiniereForGirls/asset/img/hc.png" },
+    { "local": "/images/achievements/girls-gallery-4.webp", "source": "https://lamartiniere.co/laMartiniereForGirls/asset/img/sp.png" },
+    { "local": "/images/achievements/girls-gallery-5.webp", "source": "https://lamartiniere.co/laMartiniereForGirls/asset/img/mss.png" },
+    { "local": "/images/achievements/girls-gallery-6.webp", "source": "https://lamartiniere.co/laMartiniereForGirls/asset/img/school_bulding/SCHOOL%20BUILDING%20-%20FRONT.jpg" }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "jetro": {
+      "type": "stdio",
+      "command": "/Users/abhishekshow/.jetro/runtime/node-darwin-arm64",
+      "args": [
+        "/Users/abhishekshow/.jetro/mcp-server/index.js"
+      ],
+      "env": {
+        "JET_WORKSPACE": "/Users/abhishekshow/Downloads/la-martiniere-excellence-improved",
+        "JET_API_URL": "https://api.jetro.ai",
+        "PATH": "/Users/abhishekshow/.jetro/runtime:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/abhishekshow/.cargo/bin"
+      }
+    }
+  }
+}

@@ -1,0 +1,340 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN TOKENS — animation_Rules.md colour system
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: dark;
+  --navy:    #050b10;
+  --ink:     #0d151c;
+  --ivory:   #f3eddf;
+  --gold:    #d6b45f;
+  --muted:   #b7b0a4;
+  --accent:  #e7d6a6;
+
+  /* §2.1.2 material palette */
+  --gold-heritage: #D4AF37;
+  --burgundy:      #8B1538;
+  --bronze:        #8B7355;
+
+  /* §3.2 lighting temperatures (used in CSS glows) */
+  --key-3000k: #FDB813;
+  --accent-4000k: #FFB84D;
+
+  /* Royal heritage accent */
+  --royal-gold: #B8860B;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════════════════════════ */
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  /* §10.4 — gold gradient scrollbar thumb */
+  scrollbar-color: var(--gold-heritage) var(--navy);
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+*::-webkit-scrollbar-track {
+  background: var(--navy);
+}
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold-heritage), var(--gold));
+  border-radius: 3px;
+}
+
+html {
+  background: var(--navy);
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--navy);
+  color: var(--ivory);
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TYPOGRAPHY — Playfair Display for headings, Inter for body
+   ═══════════════════════════════════════════════════════════════ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 48px; }
+h2 { font-size: 36px; }
+h3 { font-size: 28px; }
+h4 { font-size: 22px; }
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid #8befff;
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -5rem;
+  z-index: 200;
+  padding: 0.75rem 1rem;
+  background: var(--ivory);
+  color: var(--navy);
+  border-radius: 0.25rem;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ═══════════════════════════════════════════════════════════════
+   EXPERIENCE CANVAS — Three.js sticky backdrop
+   ═══════════════════════════════════════════════════════════════ */
+.experience-canvas {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--navy);
+}
+.experience-canvas canvas {
+  position: absolute !important;
+  inset: 0;
+}
+
+.experience-fallback {
+  position: absolute;
+  inset: 0;
+  background: #071019 url('/images/la-martiniere-school-fallback.png') center/cover no-repeat;
+  filter: brightness(0.44) saturate(0.72);
+}
+.building-shared .experience-fallback {
+  background-image: linear-gradient(rgba(4,10,16,.08), rgba(4,10,16,.28)),
+    url('/images/heritage-hall-cinematic.jpg');
+  filter: brightness(0.78) saturate(0.88);
+}
+
+/* §1.2 — cinematic vignette depth layers */
+.experience-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 44%, transparent 24%, rgba(3,8,12,.12) 58%, rgba(3,8,12,.8) 100%),
+    linear-gradient(90deg, rgba(3,8,12,.78), transparent 48%, rgba(3,8,12,.5));
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BUILDING EXPERIENCE LAYOUT
+   ═══════════════════════════════════════════════════════════════ */
+.building-experience {
+  position: relative;
+  min-height: 800svh;
+}
+
+/* Restored critical layout orientation classes */
+.building-experience > .experience-chapter { margin-top: -100svh; }
+.experience-chapter {
+  position: relative;
+  z-index: 2;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 7rem clamp(1.25rem, 6vw, 6rem);
+  pointer-events: none;
+}
+.experience-chapter + .experience-chapter { margin-top: 0; }
+.experience-chapter.align-right { justify-content: flex-end; }
+/* renderIn3D chapters are spacers — full height but no visible panel */
+.experience-chapter.experience-3d-only { pointer-events: none; min-height: 100svh; }
+
+
+/* §2.5.1 — experience panel glassmorphism with full shadow spec */
+.experience-panel {
+  width: min(34rem, 92vw);
+  padding: clamp(1.4rem, 3vw, 2.35rem);
+  border: 1px solid color-mix(in srgb, var(--gold) 42%, transparent);
+  border-radius: .2rem;
+  background: linear-gradient(135deg, rgba(8,18,26,.88), rgba(8,14,20,.66));
+  /* §2.5.1 full shadow spec */
+  box-shadow: 0 28px 100px rgba(0,0,0,.4), inset 0 0 40px rgba(255,255,255,.025);
+  backdrop-filter: blur(16px);
+  pointer-events: auto;
+}
+
+.experience-panel h1,
+.experience-panel h2,
+.experience-panel h3 {
+  font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  color: var(--ivory);
+}
+.experience-panel h1 { font-size: clamp(32px, 5vw, 48px); }
+.experience-panel h2 { font-size: clamp(26px, 4vw, 36px); }
+.experience-panel p {
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.building-shared .experience-chapter:first-of-type { justify-content: center; align-items: flex-end; padding-bottom: 5svh; text-align: center; }
+.building-shared .experience-chapter:first-of-type .experience-panel { width: min(30rem, 88vw); padding: 1.35rem 1.6rem; }
+.building-shared .experience-chapter:first-of-type .experience-panel > p:not(.experience-eyebrow) { margin-inline: auto; }
+
+/* §5.3 — scroll progress indicator dots (animated via Framer Motion in JS) */
+.experience-progress {
+  position: sticky;
+  top: 50%;
+  z-index: 12;
+  float: right;
+  display: grid;
+  gap: 0.42rem;
+  margin: -50svh 0.75rem 0 0;
+  transform: translateY(-50%);
+}
+.experience-progress span {
+  width: 3px;
+  height: 1.3rem;
+  background: rgba(243,237,223,.25);
+  border-radius: 2px;
+  transition: background-color .3s ease, box-shadow .3s ease, height .3s ease;
+}
+.experience-progress span.active {
+  background: var(--school-accent);
+  box-shadow: 0 0 10px var(--school-accent);
+  height: 2.2rem; /* §5.3 — expanded on active */
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CREST ACCESS LINKS
+   ═══════════════════════════════════════════════════════════════ */
+.crest-access-links {
+  position: absolute;
+  z-index: 20;
+  top: 57svh;
+  left: 50%;
+  width: min(76rem, 92vw);
+  display: flex;
+  justify-content: space-between;
+  transform: translateX(-50%);
+  transition: opacity .35s ease, transform .5s ease;
+}
+.crest-access-links a {
+  width: 12.5rem;
+  padding: .72rem .8rem;
+  border: 1px solid rgba(243,237,223,.38);
+  background: rgba(4,11,17,.72);
+  color: var(--ivory);
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.crest-access-links a:hover {
+  background: rgba(4,11,17,.9);
+  border-color: rgba(214,180,95,.6);
+}
+.crest-access-links a:first-child { box-shadow: 0 0 22px rgba(98,217,255,.18); }
+.crest-access-links a:last-child  { box-shadow: 0 0 22px rgba(255,126,220,.18); }
+.crest-access-links.departed { opacity: 0; pointer-events: none; transform: translateX(-50%) scale(.94); }
+
+/* ═══════════════════════════════════════════════════════════════
+   ANIMATION KEYFRAMES — animation_Rules.md §5
+   ═══════════════════════════════════════════════════════════════ */
+
+/* §5.1 — Frame emissive entrance pulse (CSS version for DOM sections) */
+@keyframes frame-pulse {
+  0%   { box-shadow: 0 0 0   rgba(214,180,95,0); }
+  50%  { box-shadow: 0 0 32px rgba(214,180,95,0.35); }
+  100% { box-shadow: 0 0 14px rgba(214,180,95,0.15); }
+}
+
+/* §5.2 — Shimmer for stat card backgrounds (floating orbs in AcademicSection) */
+@keyframes float-orb {
+  0%   { transform: translateY(0px)   scale(1); opacity: 0.6; }
+  100% { transform: translateY(-28px) scale(1.08); opacity: 1; }
+}
+
+/* §5.2 — Gold shimmer scan animation */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* §5.3 — Scroll progress top bar */
+@keyframes progress-grow {
+  from { width: 0%; }
+  to   { width: var(--progress, 0%); }
+}
+
+/* §5.1 — Subtle heartbeat for active gold elements */
+@keyframes gold-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.7; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* §2.1.4 — Shimmer text effect for section labels */
+.text-shimmer {
+  background: linear-gradient(90deg, var(--gold) 0%, var(--ivory) 50%, var(--gold) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* §5.2 — Interactive element hover glow */
+.hover-glow:hover {
+  box-shadow: 0 0 24px rgba(214,180,95,0.25);
+  border-color: rgba(214,180,95,0.65) !important;
+}
+
+/* §2.5.1 — Premium panel shadow utility */
+.panel-shadow {
+  box-shadow: 0 28px 100px rgba(0,0,0,.4), inset 0 0 40px rgba(255,255,255,.025);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE — §8.1 mobile optimization
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  .crest-access-links { top: 48svh; gap: 1rem; }
+  .crest-access-links a { width: 48%; font-size: .6rem; }
+
+  /* §8.1 — reduce effects on mobile */
+  .experience-panel {
+    backdrop-filter: blur(8px); /* less costly blur on mobile */
+  }
+}
+
+/* §10.4 — Accessibility: reduce all motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "capturedAt": "2026-06-21",
+  "policy": "Curated local snapshot with editorial corrections recorded in deliverables/CONTENT_PROVENANCE.md",
+  "sources": [
+    { "school": "shared", "type": "html", "url": "https://lamartiniere.co/", "coverage": ["about", "admissions", "founder", "benefactor", "organization", "contact"] },
+    { "school": "shared", "type": "external", "url": "https://portal.lamartiniere.co/", "coverage": ["notices"] },
+    { "school": "shared", "type": "external", "url": "https://apply.lamartiniere.co/", "coverage": ["lower nursery application"] },
+    { "school": "boys", "type": "html", "url": "https://lamartiniere.co/laMartiniereForBoys/", "coverage": ["profile", "principal", "gallery"] },
+    { "school": "boys", "type": "html", "url": "https://lamartiniere.co/laMartiniereForBoys/foundationdetails.html", "coverage": ["founder", "school song", "school prayer", "benefactor"] },
+    { "school": "boys", "type": "html", "url": "https://lamartiniere.co/laMartiniereForBoys/games-sports.html", "coverage": ["sports", "swimming", "achievements"] },
+    { "school": "boys", "type": "html", "url": "https://lamartiniere.co/laMartiniereForBoys/school-awards.html", "coverage": ["school awards", "student awards"] },
+    { "school": "boys", "type": "html", "url": "https://lamartiniere.co/laMartiniereForBoys/contact.html", "coverage": ["address", "telephone", "email"] },
+    { "school": "girls", "type": "html", "url": "https://lamartiniere.co/laMartiniereForGirls/", "coverage": ["profile", "principal", "mission", "vision", "gallery"] },
+    { "school": "girls", "type": "html", "url": "https://lamartiniere.co/laMartiniereForGirls/about-us.html", "coverage": ["profile", "recognition", "partner schools"] },
+    { "school": "girls", "type": "html", "url": "https://lamartiniere.co/laMartiniereForGirls/foundationdetails.html", "coverage": ["founder", "1840 separation", "foundationers"] },
+    { "school": "girls", "type": "html", "url": "https://lamartiniere.co/laMartiniereForGirls/school-history.html", "coverage": ["history", "libraries", "laboratories"] },
+    { "school": "girls", "type": "html", "url": "https://lamartiniere.co/laMartiniereForGirls/extracurricular-activities.html", "coverage": ["houses", "clubs", "sports", "swimming"] },
+    { "school": "girls", "type": "html", "url": "https://lamartiniere.co/laMartiniereForGirls/contact.html", "coverage": ["address", "telephone", "email"] }
+  ]
+}
