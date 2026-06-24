@@ -116,7 +116,7 @@ function BasketballHoop({ position, rotation = 0, accent }: { position: [number,
       {/* Backboard */}
       <mesh position={[0, 3.72, -0.5]} castShadow>
         <boxGeometry args={[2.4, 1.42, 0.08]} />
-        <MeshTransmissionMaterial color="#e8f4f8" roughness={0.02} metalness={0.05} transmission={0.95} thickness={0.08} ior={1.5} clearcoat={1} clearcoatRoughness={0.02} chromaticAberration={0.03} />
+        <meshPhysicalMaterial color="#e8f4f8" roughness={0.02} metalness={0.05} transmission={0.95} thickness={0.08} ior={1.5} clearcoat={1} clearcoatRoughness={0.02} depthWrite={false} />
       </mesh>
       {/* Backboard red square */}
       <mesh position={[0, 3.72, -0.44]}>
@@ -565,17 +565,6 @@ function Court3DContent({ accent, schoolId, visible }: { accent: string; schoolI
     groupRef.current.position.y = animState.current.y;
     groupRef.current.scale.setScalar(animState.current.scale);
     groupRef.current.visible = animState.current.opacity > 0.01;
-    
-    // Smooth fade for children
-    groupRef.current.traverse((child: any) => {
-      if (child.isMesh && child.material) {
-        if (child.userData.originalOpacity === undefined) {
-          child.userData.originalOpacity = child.material.opacity !== undefined ? child.material.opacity : 1;
-        }
-        child.material.transparent = true;
-        child.material.opacity = child.userData.originalOpacity * animState.current.opacity;
-      }
-    });
   });
 
   return (
@@ -716,16 +705,6 @@ function Pool3DContent({ accent, schoolId, visible, reducedMotion }: { accent: s
     groupRef.current.position.y = animState.current.y;
     groupRef.current.scale.setScalar(animState.current.scale);
     groupRef.current.visible = animState.current.opacity > 0.01;
-    
-    groupRef.current.traverse((child: any) => {
-      if (child.isMesh && child.material) {
-        if (child.userData.originalOpacity === undefined) {
-          child.userData.originalOpacity = child.material.opacity !== undefined ? child.material.opacity : 1;
-        }
-        child.material.transparent = true;
-        child.material.opacity = child.userData.originalOpacity * animState.current.opacity;
-      }
-    });
   });
 
   // Hover animations for logos

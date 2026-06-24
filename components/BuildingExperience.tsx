@@ -64,9 +64,9 @@ export default function BuildingExperience({ schoolId }: { schoolId: SchoolId })
         <SceneErrorBoundary>
           <Canvas
             shadows={!preferences.mobile}
-            performance={{ min: 0.55 }}
+            performance={{ min: 0.4 }}
             camera={{ position: [0, 1.7, 56], fov: 40, near: 0.1, far: 320 }}
-            dpr={preferences.mobile ? [1, 1.1] : [1, 1.5]}
+            dpr={preferences.mobile ? [1, 1] : [1, 1.2]}
             gl={{ antialias: !preferences.mobile, powerPreference: 'high-performance', stencil: false }}
           >
             <BuildingScene

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useTexture, RoundedBox, MeshTransmissionMaterial } from '@react-three/drei';
+import { useTexture, RoundedBox } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import type { SchoolId } from '../content/site-content';
@@ -206,7 +206,7 @@ function AchievementFrame({
       {/* §2.3.3 — Hyper-realistic Glass overlay */}
       <mesh position={[0, 0, 0.09]}>
         <boxGeometry args={[1.85, 2.35, 0.01]} />
-        <MeshTransmissionMaterial
+        <meshPhysicalMaterial
           color="#ffffff"
           transparent
           opacity={hovered ? 0.85 * revealProgress : 0.95 * revealProgress}
@@ -217,7 +217,7 @@ function AchievementFrame({
           transmission={0.95}
           ior={1.5}
           thickness={0.05}
-          chromaticAberration={0.02}
+          depthWrite={false}
         />
       </mesh>
     </group>
