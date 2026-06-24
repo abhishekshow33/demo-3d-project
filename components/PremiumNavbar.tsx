@@ -184,6 +184,10 @@ export default function PremiumNavbar() {
           </motion.nav>
         )}
       </AnimatePresence>
+
+      <div className="absolute top-full left-0 w-full bg-navy/95 text-ivory/70 text-[10px] md:text-xs tracking-widest text-center py-1.5 border-b border-gold/20 font-sans shadow-md z-[-1]">
+        This website is built for demo purposes for La Martiniere. Developed by EduConnect4U.com
+      </div>
     </motion.header>
   );
 }
